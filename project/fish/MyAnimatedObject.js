@@ -2,10 +2,13 @@ import {CGFobject} from '../../lib/CGF.js';
 
 /**
  * MyAnimatedObject
- * @constructor
- * @param scene - Reference to MyScene object
+ * Used as a base for MyAnimatedFish
  */
 export class MyAnimatedObject extends CGFobject {
+	/** 
+	 * @constructor
+	 * @param scene - Reference to MyScene object
+	 */
 	constructor(scene, obj) {
 		super(scene);
 		this.obj = obj;

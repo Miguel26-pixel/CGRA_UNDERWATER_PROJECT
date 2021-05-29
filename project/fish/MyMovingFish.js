@@ -3,13 +3,20 @@ import { MyMovingObject } from "./MyMovingObject.js";
 
 /**
  * MyMovingFish
- * @constructor
- * @param scene - Reference to MyScene object
+ * Uses a MyFish object and moves it according to pressed keys
+ * Updates the tail angle according to the velocity of the fish
+ * Applies movement to the side fins
  */
 export class MyMovingFish extends MyMovingObject {
+    /**
+     * @constructor
+     * @param scene - Reference to MyScene object
+     */
 	constructor(scene) {
 		super(scene, new MyFish(scene));
         this.scene = scene;
+        this.color = 1.5;
+        this.obj.setColorChosen(this.color);
         this.reset();
     }
     reset(){

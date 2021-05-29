@@ -1,12 +1,17 @@
 import {CGFobject} from '../../lib/CGF.js';
 
+/**
+ * MyFishBody
+ * Creates a flattened sphere to be used as the body for MyFish
+ */
 export class MyFishBody extends CGFobject {
-  /**
-   * @method constructor
-   * @param  {CGFscene} scene - MyScene object
-   * @param  {integer} slices - number of slices around Y axis
-   * @param  {integer} stacks - number of stacks along Y axis, from the center to the poles (half of sphere)
-   */
+ 
+  /** 
+  * @method constructor
+  * @param  {CGFscene} scene - MyScene object
+  * @param  {integer} slices - number of slices around Y axis
+  * @param  {integer} stacks - number of stacks along Y axis, from the center to the poles (half of sphere)
+  */
   constructor(scene, slices, stacks) {
     super(scene);
     this.latDivs = stacks * 2;

@@ -22,16 +22,19 @@ varying vec4 coords;
 varying vec2 vTextureCoord;
 
 uniform sampler2D uSampler;
+uniform sampler2D uSampler2;
+
+uniform vec3 ColorRandom;
 
 #define NUMBER_OF_LIGHTS 8
 uniform lightProperties uLight[NUMBER_OF_LIGHTS];
 
 void main() {
 	vec4 color = texture2D(uSampler, vTextureCoord);
-	if (coords.z > 0.04)
-		gl_FragColor =  vec4(0.19, 0.17, 0.33, 1.0) * uLight[0].diffuse;
-	else
-	{
+	if (coords.z <= 0.04){
 		gl_FragColor = color;
 	}
+    else {
+        gl_FragColor = vec4(0.19,0.17,0.33,1.0)*uLight[0].diffuse;
+    }
 }

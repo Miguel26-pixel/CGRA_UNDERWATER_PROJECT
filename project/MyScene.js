@@ -49,19 +49,6 @@ export class MyScene extends CGFscene {
         
         this.enableTextures(true);
 
-        //Initialize scene objects
-        this.axis = new CGFaxis(this);
-        this.incompleteSphere = new MySphere(this, 16, 8);
-        this.movingObject = new MyMovingObject(this, new MyPyramid(this,16,8));
-        this.fish = new MyMovingFish(this);
-        this.quad = new MyQuad(this);
-        this.cubemap = new MyCubeMap(this);
-        this.cylinder = new MyCylinder(this,200);
-        this.seafloor = new MySeaFloor(this);
-        this.surface = new MySurface(this);
-        this.sea_elements = new MySeaElements(this);
-        this.sea_scene = new MySeaScene(this);
-
         //Objects connected to MyInterface
         this.displayAxis = true;
         this.displayMovingObject = false;
@@ -92,6 +79,8 @@ export class MyScene extends CGFscene {
             new CGFshader(this.gl, "shaders/seaweed.vert", "shaders/seaweed.frag")
         ]
 
+        this.testShaders[0].setUniformsValues({ uSampler: 0 });
+
         this.testShaders[1].setUniformsValues({ uSampler2: 1 });
 		this.testShaders[1].setUniformsValues({ USampler: 0 });
 
@@ -109,6 +98,19 @@ export class MyScene extends CGFscene {
             'Shell' : 3,
             'Seaweed' : 4
         }
+
+        //Initialize scene objects
+        this.axis = new CGFaxis(this);
+        this.incompleteSphere = new MySphere(this, 16, 8);
+        this.movingObject = new MyMovingObject(this, new MyPyramid(this,16,8));
+        this.fish = new MyMovingFish(this);
+        this.quad = new MyQuad(this);
+        this.cubemap = new MyCubeMap(this);
+        this.cylinder = new MyCylinder(this,200);
+        this.seafloor = new MySeaFloor(this);
+        this.surface = new MySurface(this);
+        this.sea_elements = new MySeaElements(this);
+        this.sea_scene = new MySeaScene(this);
     }
     initLights() {
         this.lights[0].setPosition(15, 2, 5, 1);

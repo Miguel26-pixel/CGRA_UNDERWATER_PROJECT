@@ -3,13 +3,19 @@ import { MyAnimatedObject } from "./MyAnimatedObject.js";
 
 /**
  * MyAnimatedFish
- * @constructor
- * @param scene - Reference to MyScene object
+ * Applies a circular movement with a period of 10s to the fish it receives
  */
 export class MyAnimatedFish extends MyAnimatedObject{
-	constructor(scene) {
+	/**
+     * @constructor
+     * @param scene - Reference to MyScene object
+     */
+     constructor(scene, color, ratio) {
 		super(scene, new MyFish(scene));
         this.circle_angle = 0;
+        this.color = color;
+        this.ratio = ratio;
+        this.obj.setColorChosen(this.color);
         this.reset();
     }
     reset(){
@@ -53,7 +59,7 @@ export class MyAnimatedFish extends MyAnimatedObject{
         this.obj.angRFin = this.obj.angRFin + this.rightOri*(2)*Math.PI/180;
     
         super.move([3*Math.sin(this.circle_angle)+this.startX,this.startY,3*Math.cos(this.circle_angle)+this.startZ]);
-        this.circle_angle += Math.PI/100*this.scene.speedFactor;  //10 secs lap
+        this.circle_angle += Math.PI/100*this.scene.speedFactor; 
         super.change_ang(this.circle_angle);
     }
     

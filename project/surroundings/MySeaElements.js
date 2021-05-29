@@ -2,7 +2,6 @@ import {CGFobject} from '../../lib/CGF.js';
 
 import {MyAnimatedFish} from '../fish/MyAnimatedFish.js';
 
-import {MyPerolSet} from '../seafloor/nest/MyPerolSet.js';
 import {MyNest} from '../seafloor/nest/MyNest.js';
 import {MyRockSet} from '../seafloor/rocks/MyRockSet.js';
 import {MySeaweedSet} from '../seafloor/seaweeds/MySeaweedSet.js';
@@ -35,12 +34,12 @@ export class MySeaElements extends CGFobject {
     this.pillar3 = new MyPillar(this.scene,37,22);
     this.pillar4 = new MyPillar(this.scene,37,25);
     this.nest = new MyNest(this.scene);
-    this.animated_fish1 = new MyAnimatedFish(this.scene);
-    this.animated_fish2 = new MyAnimatedFish(this.scene);
-    this.animated_fish3 = new MyAnimatedFish(this.scene);
-    this.animated_fish4 = new MyAnimatedFish(this.scene);
-    this.animated_fish5 = new MyAnimatedFish(this.scene);
-    this.animated_fish6 = new MyAnimatedFish(this.scene);
+    this.animated_fish1 = new MyAnimatedFish(this.scene, Math.random()*4, 0.04);
+    this.animated_fish2 = new MyAnimatedFish(this.scene, Math.random()*4, 0.04);
+    this.animated_fish3 = new MyAnimatedFish(this.scene, Math.random()*4, 0.04);
+    this.animated_fish4 = new MyAnimatedFish(this.scene, Math.random()*4, 0.04);
+    this.animated_fish5 = new MyAnimatedFish(this.scene, Math.random()*4, 0.04);
+    this.animated_fish6 = new MyAnimatedFish(this.scene, Math.random()*4, 0.04);
     this.seaweedset = new MySeaweedSet(this.scene, 20);
 
   }

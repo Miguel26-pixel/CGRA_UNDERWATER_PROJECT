@@ -6,6 +6,12 @@ import {MyFishTopFin} from './MyFishTopFin.js';
 import {MyFishFin} from './MyFishFin.js';
 import {MyFishEye} from './MyFishEye.js';
 
+
+/**
+ * MyFish
+ * Used by MyMovingFish and MyAnimatedFish
+ * Creates a fish with a random body texture
+ */
 export class MyFish extends CGFobject {
   /**
    * @method constructor
@@ -18,6 +24,8 @@ export class MyFish extends CGFobject {
     this.scene = scene;
     
     this.rock = null;
+
+    this.colorChosen = [0,0,0];
 
     this.angTail = 0;
     this.angLFin = 0;
@@ -51,6 +59,16 @@ export class MyFish extends CGFobject {
     this.bodymaterial.setShininess(10);
     this.bodymaterial.setTexture(this.bodypatern);
     this.bodymaterial.setTextureWrap('REPEAT', 'REPEAT');
+    this.bodymaterial.setColor(this.colorChosen[0],this.colorChosen[1],this.colorChosen[2]);
+
+    this.bodymaterial2 = new CGFappearance(this.scene);
+    this.bodymaterial2.setAmbient(0.7,0.7,0.7,1);
+    this.bodymaterial2.setDiffuse(0.9,0.9,0.9,1);
+    this.bodymaterial2.setDiffuse(0.2,0.2,0.2,1);
+    this.bodymaterial2.setShininess(10);
+    this.bodymaterial2.setTexture(this.bodypatern);
+    this.bodymaterial2.setTextureWrap('REPEAT', 'REPEAT');
+    this.bodymaterial2.setColor(this.colorChosen[0],this.colorChosen[1],this.colorChosen[2]);
 
   }
 
@@ -71,6 +89,12 @@ export class MyFish extends CGFobject {
 
   }
 
+  setColorChosen(value){
+      this.fishtail.setColor(value);
+      this.fishtopfin.setColor(value);
+      this.fishfin.setColor(value);
+  }
+
   display(){
 
     this.scene.pushMatrix();
@@ -79,8 +103,9 @@ export class MyFish extends CGFobject {
     this.scene.rotate(-Math.PI/2,1,0,0);
     this.scene.translate(0,-12.5,0);
     this.scene.pushMatrix();
-    this.bodymaterial.apply();
+    this.bodymaterial2.apply();
     this.scene.setActiveShader(this.scene.testShaders[0]);
+    this.bodypatern.bind(0);
     this.fishbody.display();
     this.scene.setActiveShader(this.scene.defaultShader);
 
@@ -94,8 +119,6 @@ export class MyFish extends CGFobject {
     }
     
     this.scene.popMatrix();
-
-
     this.scene.pushMatrix();
     this.scene.rotate(this.angTail,0,1,0);
     this.fishtail.display();

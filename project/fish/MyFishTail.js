@@ -1,6 +1,11 @@
 import {CGFobject} from '../../lib/CGF.js';
 import {MyTriangle} from '../utils/MyTriangle.js';
 
+/**
+ * MyFishTail
+ * Used to create a tail for MyFish
+ * Based on MyTriangle
+ */
 export class MyFishTail extends CGFobject {
   /**
    * @method constructor
@@ -27,13 +32,27 @@ export class MyFishTail extends CGFobject {
 
   }
 
+  setColor(value) {
+    this.color = value;
+  }
+
   display(){
     this.scene.pushMatrix();
     this.scene.translate(0,0,-2.3);
     this.scene.rotate(Math.PI/2,1,0,0);
     this.scene.rotate(Math.PI/2,0,1,0);
     this.scene.scale(0.7,0.7,0.7);
-    this.scene.purple.apply();
+
+    if(this.color < 1)
+        this.scene.green.apply();
+    else if(this.color < 2)
+        this.scene.purple.apply();
+    else if(this.color < 3)
+        this.scene.red.apply();
+    else if(this.color < 4)
+        this.scene.orange.apply();
+
+    //this.scene.purple.apply();
     this.triangle.display();
     this.scene.popMatrix();
   }

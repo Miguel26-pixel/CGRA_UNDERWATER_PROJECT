@@ -2,6 +2,13 @@ import {CGFobject, CGFtexture, CGFappearance} from '../../../lib/CGF.js';
 import { MyPerolSet } from './MyPerolSet.js';
 import {MyShell} from './MyShell.js';
 
+
+/**
+ * MyNest
+ * Creates a Nest using MyShell
+ * This shell opens when the fish gets close to it and closes when the fish drifts way
+ * Creates a PerolSet around the shell
+ */
 export class MyNest extends CGFobject {
   /**
    * @method constructor

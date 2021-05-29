@@ -1,5 +1,11 @@
 import {CGFobject} from '../../lib/CGF.js';
 
+
+/**
+ * MyFishEye
+ * Creates a white and a black sphere and overlaps them
+ * Used as the eyes for MyFish
+ */
 export class MyFishEye extends CGFobject {
   /**
    * @method constructor
